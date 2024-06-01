@@ -356,6 +356,52 @@ public class GrowBeggarsView {
 			innerLangData.put("showChangeLang_1", "Please select the language you want to set.\n");
 			
 			innerLangData.put("changeLang_1", "Language has been changed!\n");
+			
+			innerLangData.put("choiceBattleMenu_1", "You want to show off your beggar skills!\n");
+			innerLangData.put("choiceBattleMenu_2", "You just happened to meet %s\n");
+			innerLangData.put("choiceBattleMenu_3", "Do you want to fight? (Y/N) > ");
+			
+			innerLangData.put("showRun_1", "You chose to run away.\n");
+			
+			innerLangData.put("showWarMyTurn_1", "Your current health is %s.\n");
+			innerLangData.put("showWarMyTurn_2", "%s' current health is %s.\n");
+			innerLangData.put("showWarMyTurn_3", "You can increase your dodge rate by attacking or dodging.\n");
+			innerLangData.put("showWarMyTurn_4", "You can also use potions or ignore dodges to completely avoid being hit or run away.\n");
+			innerLangData.put("showWarMyTurn_5", "What action would you like to take?\n");
+			innerLangData.put("showWarMyTurn_6", "1. Attack\n");
+			innerLangData.put("showWarMyTurn_7", "2. Avoidance\n");
+			innerLangData.put("showWarMyTurn_8", "3. Using potions\n");
+			innerLangData.put("showWarMyTurn_9", "4. Use attack ignore\n");
+			innerLangData.put("showWarMyTurn_10", "5. Run away\n");
+			
+			innerLangData.put("showUseHpPosion_1", "You used a potion.\n");
+			innerLangData.put("showUseHpPosion_2", "The health recovered is %s.\n");
+			
+			innerLangData.put("showUseEvasion_1", "You try to avoid.\n");
+			
+			innerLangData.put("showNotUseHpPosition_1", "You currently do not have any HP potions.\n");
+			
+			innerLangData.put("showUseIgnoreAttack_1", "You used attack ignore.\n");
+			
+			innerLangData.put("showNotUseIgnoreAttack_1", "You currently do not have attack ignore.\n");
+			
+			innerLangData.put("showMyAttack_1", "Your attack worked!\n");
+			innerLangData.put("showMyAttack_2", "You inflicted %s amount of damage to %s.\n");
+			innerLangData.put("showMyAttack_3", "The monster dodged your attack!\n");
+			
+			innerLangData.put("showWarWin_1", "You have defeated %s.\n");
+			innerLangData.put("showWarWin_2", "You gained %s money and %s experience points.\n");
+			
+			innerLangData.put("showLevelUp_1", "You have leveled up.\n");
+			innerLangData.put("showLevelUp_2", "Your current level is %s.\n");
+			
+			innerLangData.put("showMobAttackResult_1", "%s is attempting an attack.\n");
+			innerLangData.put("showMobAttackResult_2", "%s attacked and suffered about %s damage.\n");
+			innerLangData.put("showMobAttackResult_3", "You dodged %s' attack.\n");
+			
+			innerLangData.put("showWarLose_1", "You lost to %s.\n");
+			innerLangData.put("showWarLose_2", "You have lost %s experience.\n");
+			innerLangData.put("showWarLose_3", "Your current experience level is %s.\n");
 		}
 		lang.put(langCode, innerLangData);
 	}
@@ -707,6 +753,7 @@ public class GrowBeggarsView {
 		displayMsg("showWarMyTurn_7");
 		displayMsg("showWarMyTurn_8");
 		displayMsg("showWarMyTurn_9");
+		displayMsg("showWarMyTurn_10");
 		displayMsg("common_choice");
 		return getNumberInput(1, 5);
 	}

@@ -46,14 +46,14 @@ public class Beggar {
 		machines = new ArrayList<>();
 		inventory = new Inventory();
 		
-		level = 1;
-		maxHp = 100;
-		curHp = 100;
-		evasionRate = 0.2;
-		minHitPoint = 20;
-		maxHitPoint = 40;
+		level = Constants.INIT_LEVEL;
+		maxHp = Constants.INIT_MAX_HP;
+		curHp = Constants.INIT_MAX_HP;
+		evasionRate = Constants.INIT_EVASION_RATE;
+		minHitPoint = Constants.INIT_MIN_HIT_POINT;
+		maxHitPoint = Constants.INIT_MAX_HIT_POINT;
 		curExp = 0;
-		requireExp = 50;
+		requireExp = Constants.INIT_REQUIRE_EXP;
 	}
 	
 	public String getName() {

@@ -20,7 +20,7 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 		boolean result = view.choiceBattleMenu(Constants.MOB_CONSTANTS[mobIdx].getName(),
 				Constants.MOB_CONSTANTS[mobIdx].getArtData());
 		if (result) {
-			beggar.initHp();
+			manageBeggar.initHp();
 			Mob targetMob = new Mob(Constants.MOB_CONSTANTS[mobIdx].getId(), Constants.MOB_CONSTANTS[mobIdx].getName(),
 					Constants.MOB_CONSTANTS[mobIdx].getHp(), Constants.MOB_CONSTANTS[mobIdx].getEvasionRate(),
 					Constants.MOB_CONSTANTS[mobIdx].getHitMinPoint(), Constants.MOB_CONSTANTS[mobIdx].getHitMaxPoint(),
@@ -34,12 +34,12 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 				if (isMyTurn) {
 					isUsedEvasion = false;
 					isUsedEvasionItem = false;
-					int myChoice = view.showWarMyTurn(beggar.getCurHp(), targetMob.getHp(), targetMob.getName());
+					int myChoice = view.showWarMyTurn(manageBeggar.getCurHp(), targetMob.getHp(), targetMob.getName());
 					if (myChoice == 1) {
 						// 공격하기
 						double r = random.nextDouble();
-						int hitPoint = random.nextInt(beggar.getMaxHitPoint() - beggar.getMinHitPoint() + 1)
-								+ beggar.getMinHitPoint();
+						int hitPoint = random.nextInt(manageBeggar.getMaxHitPoint() - manageBeggar.getMinHitPoint() + 1)
+								+ manageBeggar.getMinHitPoint();
 						boolean hitResult = r >= targetMob.getEvasionRate();
 						view.showMyAttack(hitResult, targetMob.getName(), hitPoint);
 						if (hitResult) {
@@ -51,9 +51,9 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 										.nextInt(targetMob.getEarnMaxMoney() - targetMob.getEarnMinMoney() + 1)
 										+ targetMob.getEarnMinMoney();
 								view.showWarWin(targetMob.getName(), earnMoney, targetMob.getEarnExp());
-								beggar.addMoney(earnMoney);
-								if (beggar.addExp(targetMob.getEarnExp())) {
-									view.showLevelUp(beggar.getLevel());
+								manageBeggar.addMoney(earnMoney);
+								if (manageBeggar.addExp(targetMob.getEarnExp())) {
+									view.showLevelUp(manageBeggar.getLevel());
 								}
 								break;
 							}
@@ -66,16 +66,16 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 						isMyTurn = false;
 					} else if (myChoice == 3) {
 						// 포션 사용하기
-						if (beggar.useItem(Constants.ITEM_CONSTANTS[2])) {
-							beggar.addHpFromPosion();
-							view.showUseHpPosion(beggar.getCurHp());
+						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS[2])) {
+							manageBeggar.addHpFromPosion();
+							view.showUseHpPosion(manageBeggar.getCurHp());
 							isMyTurn = false;
 						} else {
 							view.showNotUseHpPosion();
 						}
 					} else if (myChoice == 4) {
 						// 공격 무시 사용하기
-						if (beggar.useItem(Constants.ITEM_CONSTANTS[3])) {
+						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS[3])) {
 							view.showUseIgnoreAttack();
 							isMyTurn = false;
 						} else {
@@ -90,7 +90,7 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 					double r = random.nextDouble();
 					int hitPoint = random.nextInt(targetMob.getHitMaxPoint() - targetMob.getHitMinPoint() + 1)
 							+ targetMob.getHitMinPoint();
-					double applyRatio = beggar.getEvasionRate();
+					double applyRatio = manageBeggar.getEvasionRate();
 					if (isUsedEvasion) {
 						applyRatio *= 2.0;
 					}
@@ -100,10 +100,10 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 					}
 					view.showMobAttackResult(hitResult, targetMob.getName(), hitPoint);
 					if (hitResult) {
-						if (beggar.loseHp(hitPoint)) {
+						if (manageBeggar.loseHp(hitPoint)) {
 							// 당신이 죽었다면
-							beggar.loseExp(targetMob.getLoseExp());
-							view.showWarLose(targetMob.getName(), targetMob.getLoseExp(), beggar.getCurExp());
+							manageBeggar.loseExp(targetMob.getLoseExp());
+							view.showWarLose(targetMob.getName(), targetMob.getLoseExp(), manageBeggar.getCurExp());
 							break;
 						}
 					}

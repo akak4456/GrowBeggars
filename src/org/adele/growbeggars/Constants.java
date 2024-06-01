@@ -37,6 +37,13 @@ public class Constants {
 	
 	public static final int ADDED_HP_FROM_HP_POSION = 50;
 	
+	public static final int INIT_LEVEL = 1;
+	public static final int INIT_MAX_HP = 300;
+	public static final double INIT_EVASION_RATE = 0.2;
+	public static final int INIT_MIN_HIT_POINT = 40;
+	public static final int INIT_MAX_HIT_POINT = 80;
+	public static final int INIT_REQUIRE_EXP = 50;
+	
 	public static final AutoMachineConstant[] EMPLOY_BEGGAR_CONSTANTS = {
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_1"),"초급 거지",1.0,1000,1000),
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_2"),"초급 불의 호흡 거지",1.2,1200,1000),

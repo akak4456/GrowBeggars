@@ -25,25 +25,25 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 		while (true) {
 			int choice = view.choiceGameMenu();
 			if (choice == 1) {
-				int earnMoney = beggar.getEarnBegMoney();
-				boolean useFever = beggar.useItem(Constants.ITEM_CONSTANTS[0]); // 구걸 피버는 자동으로 사용한다.
+				int earnMoney = manageBeggar.getEarnBegMoney();
+				boolean useFever = manageBeggar.useItem(Constants.ITEM_CONSTANTS[0]); // 구걸 피버는 자동으로 사용한다.
 				if (useFever) {
 					earnMoney = (int) ((earnMoney + Constants.BEG_FEVER_ADD) * Constants.BEG_FEVER_MUL);
 				}
 				view.showBegResult(useFever, earnMoney);
-				beggar.addMoney(earnMoney);
-				view.showCurrentMoney(beggar.getMoney());
+				manageBeggar.addMoney(earnMoney);
+				view.showCurrentMoney(manageBeggar.getMoney());
 			} else if (choice == 2) {
-				if (beggar.useItem(Constants.ITEM_CONSTANTS[1])) {
-					int earnMoney = beggar.getEarnGakseolitaryeongMoney();
-					beggar.addMoney(earnMoney);
+				if (manageBeggar.useItem(Constants.ITEM_CONSTANTS[1])) {
+					int earnMoney = manageBeggar.getEarnGakseolitaryeongMoney();
+					manageBeggar.addMoney(earnMoney);
 					view.showGakseolitaryeongResult(earnMoney);
 				} else {
 					view.showNotUseGakseolitaryeong();
 				}
 			} else if (choice == 3) {
 				while (true) {
-					long curMoney = beggar.getMoney();
+					long curMoney = manageBeggar.getMoney();
 					view.showCurrentMoney(curMoney);
 					int hireChoice = view.hireBeggar();
 					if (hireChoice == Constants.EMPLOY_BEGGAR_CONSTANTS.length + 1) {
@@ -55,30 +55,30 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 								Constants.EMPLOY_BEGGAR_CONSTANTS[idx].getMul(),
 								Constants.EMPLOY_BEGGAR_CONSTANTS[idx].getBuyPrice(),
 								Constants.EMPLOY_BEGGAR_CONSTANTS[idx].getInitUpgradePrice());
-						view.showHireBeggarResult(beggar.hireBeggar(employ));
+						view.showHireBeggarResult(manageBeggar.hireBeggar(employ));
 					}
 				}
 			} else if (choice == 4) {
 				while (true) {
-					long curMoney = beggar.getMoney();
+					long curMoney = manageBeggar.getMoney();
 					view.showCurrentMoney(curMoney);
-					ArrayList<AutoMoneyMachine> machines = beggar.getMachines();
+					ArrayList<AutoMoneyMachine> machines = manageBeggar.getMachines();
 					ArrayList<String> lines = new ArrayList<>();
 					for (int i = 0; i < machines.size(); i++) {
 						lines.add(machines.get(i).getName());
 					}
 					int buyChoice = view.upgradeBeggar(lines);
 					if (buyChoice == 1) {
-						if (view.begUpgradeYN(beggar.getBegMinMoney(), beggar.getBegMaxMoney(),
-								beggar.getBegUpgradePrice())) {
-							view.showBegUpgradeResult(beggar.upgradeBegMoney());
+						if (view.begUpgradeYN(manageBeggar.getBegMinMoney(), manageBeggar.getBegMaxMoney(),
+								manageBeggar.getBegUpgradePrice())) {
+							view.showBegUpgradeResult(manageBeggar.upgradeBegMoney());
 						} else {
 							view.showNotContinueBegUpgrade();
 						}
 					} else if (buyChoice == 2) {
-						if (view.gakseolitaryeongUpgradeYN(beggar.getGakseolitaryeongMinMoney(),
-								beggar.getGakseolitaryeongMaxMoney(), beggar.getGakseolitaryeongUpgradePrice())) {
-							view.showGakseolitaryeongUpgradeResult(beggar.upgradeGakseolitaryeong());
+						if (view.gakseolitaryeongUpgradeYN(manageBeggar.getGakseolitaryeongMinMoney(),
+								manageBeggar.getGakseolitaryeongMaxMoney(), manageBeggar.getGakseolitaryeongUpgradePrice())) {
+							view.showGakseolitaryeongUpgradeResult(manageBeggar.upgradeGakseolitaryeong());
 						} else {
 							view.showNotContinueGakseolitaryeongUpgrade();
 						}
@@ -87,7 +87,7 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 					} else {
 						AutoMoneyMachine machine = machines.get(buyChoice - 3);
 						if (view.machineUpgradeYN(machine.getName(), machine.getMul(), machine.getUpgradePrice())) {
-							view.showMachineUpgradeResult(beggar.upgradeMachine(machine), machine.getName());
+							view.showMachineUpgradeResult(manageBeggar.upgradeMachine(machine), machine.getName());
 						} else {
 							view.showNotContinueMachineUpgrade(machine.getName());
 						}
@@ -95,24 +95,24 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 				}
 			} else if (choice == 5) {
 				while (true) {
-					long curMoney = beggar.getMoney();
+					long curMoney = manageBeggar.getMoney();
 					view.showCurrentMoney(curMoney);
-					int buyItemChoice = view.buyItem(beggar.getBeggar());
+					int buyItemChoice = view.buyItem(manageBeggar.getBeggar());
 					if (buyItemChoice == 5) {
 						break;
 					} else {
-						view.showBuyItemResult(beggar.buyItem(Constants.ITEM_CONSTANTS[buyItemChoice - 1]), Constants.ITEM_CONSTANTS[buyItemChoice - 1].getName(), Constants.ITEM_CONSTANTS[buyItemChoice - 1].getItemBundleSize());
+						view.showBuyItemResult(manageBeggar.buyItem(Constants.ITEM_CONSTANTS[buyItemChoice - 1]), Constants.ITEM_CONSTANTS[buyItemChoice - 1].getName(), Constants.ITEM_CONSTANTS[buyItemChoice - 1].getItemBundleSize());
 					}
 				}
 			} else if (choice == 6) {
 				while (true) {
-					long curMoney = beggar.getMoney();
+					long curMoney = manageBeggar.getMoney();
 					view.showCurrentMoney(curMoney);
 					ArrayList<AutoMoneyMachine> validMachines = new ArrayList<>();
 					ArrayList<String> names = new ArrayList<>();
 					ArrayList<Integer> prices = new ArrayList<>();
 					for (int i = 0; i < Constants.BUILDING_CONSTANTS.length; i++) {
-						if (beggar.containMachine(Constants.BUILDING_CONSTANTS[i].getId())) {
+						if (manageBeggar.containMachine(Constants.BUILDING_CONSTANTS[i].getId())) {
 							continue;
 						}
 						Building building = new Building(Constants.BUILDING_CONSTANTS[i].getId(),
@@ -128,18 +128,18 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 						break;
 					} else {
 						AutoMoneyMachine machine = validMachines.get(buyBuildingChoice - 1);
-						view.showBuyMachineResult(beggar.buyMachine(machine), machine.getName());
+						view.showBuyMachineResult(manageBeggar.buyMachine(machine), machine.getName());
 					}
 				}
 			} else if (choice == 7) {
 				while (true) {
-					long curMoney = beggar.getMoney();
+					long curMoney = manageBeggar.getMoney();
 					view.showCurrentMoney(curMoney);
 					ArrayList<AutoMoneyMachine> validMachines = new ArrayList<>();
 					ArrayList<String> names = new ArrayList<>();
 					ArrayList<Integer> prices = new ArrayList<>();
 					for (int i = 0; i < Constants.NATION_CONSTANTS.length; i++) {
-						if (beggar.containMachine(Constants.NATION_CONSTANTS[i].getId())) {
+						if (manageBeggar.containMachine(Constants.NATION_CONSTANTS[i].getId())) {
 							continue;
 						}
 						Nation nation = new Nation(Constants.NATION_CONSTANTS[i].getId(),
@@ -155,15 +155,15 @@ public class GrowBeggarsMainController extends GrowBeggarsController {
 						break;
 					} else {
 						AutoMoneyMachine machine = validMachines.get(buyNationChoice - 1);
-						view.showBuyMachineResult(beggar.buyMachine(machine), machine.getName());
+						view.showBuyMachineResult(manageBeggar.buyMachine(machine), machine.getName());
 					}
 				}
 			} else if (choice == 8) {
 				battleController.run();
 			} else if (choice == 9) {
-				long curMoney = beggar.getMoney();
+				long curMoney = manageBeggar.getMoney();
 				view.showCurrentMoney(curMoney);
-				view.showBegInfo(beggar.getBeggar());
+				view.showBegInfo(manageBeggar.getBeggar());
 			} else if (choice == 10) {
 				break;
 			}

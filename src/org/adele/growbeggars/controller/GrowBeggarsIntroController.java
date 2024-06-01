@@ -16,14 +16,14 @@ public class GrowBeggarsIntroController extends GrowBeggarsController {
 		while (true) {
 			int choice = view.choiceMenu();
 			if(choice == 1) {
-				if(beggar.isFirst()) {
+				if(manageBeggar.isFirst()) {
 					String name = view.inputName();
 					int age = view.inputAge();
-					beggar.setNameAndAge(name, age);
+					manageBeggar.setNameAndAge(name, age);
 				}
 				mainController.run();
 			} else if(choice == 2) {
-				beggar.reset();
+				manageBeggar.reset();
 				view.showReset();
 			} else if(choice == 3) {
 				int langChoice = view.showChangeLang();

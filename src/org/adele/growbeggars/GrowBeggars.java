@@ -5,6 +5,7 @@ import org.adele.growbeggars.controller.GrowBeggarsIntroController;
 import org.adele.growbeggars.controller.GrowBeggarsMainController;
 import org.adele.growbeggars.gameinput.ScannerInput;
 import org.adele.growbeggars.gameoutput.SystemOutput;
+import org.adele.growbeggars.model.Beggar;
 
 /*
  * MVC 아키텍처를 적용함
@@ -21,10 +22,10 @@ public class GrowBeggars {
 	private static GrowBeggarsIntroController introController;
 	public static void main(String[] args) {
 		GrowBeggarsView view = new GrowBeggarsView(new ScannerInput(), new SystemOutput());
-		ManageBeggar beggar = new ManageBeggar();
-		battleController = new GrowBeggarsBattleController(beggar, view);
-		mainController = new GrowBeggarsMainController(beggar, view, battleController);
-		introController = new GrowBeggarsIntroController(beggar, view, mainController);
+		ManageBeggar manageBeggar = new ManageBeggar(new Beggar());
+		battleController = new GrowBeggarsBattleController(manageBeggar, view);
+		mainController = new GrowBeggarsMainController(manageBeggar, view, battleController);
+		introController = new GrowBeggarsIntroController(manageBeggar, view, mainController);
 		introController.run();
 	}
 

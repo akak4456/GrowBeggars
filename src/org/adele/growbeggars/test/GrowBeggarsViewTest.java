@@ -62,12 +62,12 @@ public class GrowBeggarsViewTest {
 		skipMethodName.add("changeLang");
 		skipMethodName.add("initLang");
 		skipMethodName.add("getLangData");
-		koTest();
+		test(GrowBeggarsView.LANG_KO);
 	}
 	
-	private static void koTest() {
-		output.changeLang(view.getLangData(GrowBeggarsView.LANG_KO));
-		view.changeLang(GrowBeggarsView.LANG_KO);
+	private static void test(String langCd) {
+		output.changeLang(view.getLangData(langCd));
+		view.changeLang(langCd);
 		testInner();
 		System.out.println("----------------------------------------------------------------------------------------------------");
 		System.out.println("현재까지 남은 포맷 갯수: " + output.formatStrs.size());

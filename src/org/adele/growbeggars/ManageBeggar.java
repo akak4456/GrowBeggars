@@ -22,8 +22,8 @@ public class ManageBeggar {
 	
 	private Beggar beggar;
 	
-	public ManageBeggar() {
-		beggar = new Beggar();
+	public ManageBeggar(Beggar beggar) {
+		this.beggar = beggar;
 		lastCalcMillis = 0;
 		beggar.init();
 	}
@@ -76,13 +76,14 @@ public class ManageBeggar {
 	 */
 	public boolean addExp(int earnExp) {
 		beggar.setCurExp(beggar.getCurExp() + earnExp);
-		if(beggar.getCurExp() >= beggar.getRequireExp()) {
+		boolean isLevelup = false;
+		while(beggar.getCurExp() >= beggar.getRequireExp()) {
 			beggar.setLevel(beggar.getLevel() + 1);
 			beggar.setCurExp(beggar.getCurExp() - beggar.getRequireExp());
 			beggar.setRequireExp((int)(beggar.getRequireExp() * 1.2));
-			return true;
+			isLevelup = true;
 		}
-		return false;
+		return isLevelup;
 	}
 	
 	public void loseExp(int loseExp) {
@@ -108,15 +109,17 @@ public class ManageBeggar {
 			}
 			long curTime = System.currentTimeMillis();
 			long durationSeconds = (curTime - lastCalcMillis) / 1000;
-			lastCalcMillis = System.currentTimeMillis();
-			double sum = 0.0;
-			for (int i = 0; i < beggar.getMachines().size(); i++) {
-				AutoMoneyMachine machine = beggar.getMachines().get(i);
-				if (machine != null) {
-					sum += durationSeconds * machine.getMul();
+			if(durationSeconds > 0) {
+				lastCalcMillis = System.currentTimeMillis();
+				double sum = 0.0;
+				for (int i = 0; i < beggar.getMachines().size(); i++) {
+					AutoMoneyMachine machine = beggar.getMachines().get(i);
+					if (machine != null) {
+						sum += durationSeconds * machine.getMul();
+					}
 				}
+				beggar.setMoney((long) (beggar.getMoney() + sum));
 			}
-			beggar.setMoney((long) (beggar.getMoney() + sum));
 		}
 	}
 	
