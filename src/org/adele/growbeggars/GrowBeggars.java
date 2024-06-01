@@ -3,9 +3,11 @@ package org.adele.growbeggars;
 import org.adele.growbeggars.controller.GrowBeggarsBattleController;
 import org.adele.growbeggars.controller.GrowBeggarsIntroController;
 import org.adele.growbeggars.controller.GrowBeggarsMainController;
-import org.adele.growbeggars.gameinput.ScannerInput;
-import org.adele.growbeggars.gameoutput.SystemOutput;
+import org.adele.growbeggars.controller.input.ScannerInput;
+import org.adele.growbeggars.controller.output.SystemOutput;
+import org.adele.growbeggars.manage.ManageBeggar;
 import org.adele.growbeggars.model.Beggar;
+import org.adele.growbeggars.view.GrowBeggarsView;
 
 /*
  * MVC 아키텍처를 적용함

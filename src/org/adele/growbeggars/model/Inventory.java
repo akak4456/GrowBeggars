@@ -3,7 +3,7 @@ package org.adele.growbeggars.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.adele.growbeggars.Constants.Item;
+import org.adele.growbeggars.constants.Constants.Item;
 
 /*
  * 유저가 가지고 있는 아이템

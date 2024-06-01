@@ -1,4 +1,4 @@
-package org.adele.growbeggars;
+package org.adele.growbeggars.constants;
 
 import java.util.Objects;
 

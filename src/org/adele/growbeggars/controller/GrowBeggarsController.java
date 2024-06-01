@@ -1,7 +1,7 @@
 package org.adele.growbeggars.controller;
 
-import org.adele.growbeggars.GrowBeggarsView;
-import org.adele.growbeggars.ManageBeggar;
+import org.adele.growbeggars.manage.ManageBeggar;
+import org.adele.growbeggars.view.GrowBeggarsView;
 
 public abstract class GrowBeggarsController {
 	protected ManageBeggar manageBeggar;

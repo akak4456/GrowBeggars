@@ -2,13 +2,13 @@ package org.adele.growbeggars.controller;
 
 import java.util.ArrayList;
 
-import org.adele.growbeggars.Constants;
-import org.adele.growbeggars.GrowBeggarsView;
-import org.adele.growbeggars.ManageBeggar;
+import org.adele.growbeggars.constants.Constants;
+import org.adele.growbeggars.manage.ManageBeggar;
 import org.adele.growbeggars.model.AutoMoneyMachine;
 import org.adele.growbeggars.model.Building;
 import org.adele.growbeggars.model.EmployBeggar;
 import org.adele.growbeggars.model.Nation;
+import org.adele.growbeggars.view.GrowBeggarsView;
 
 public class GrowBeggarsMainController extends GrowBeggarsController {
 

@@ -1,9 +1,10 @@
-package org.adele.growbeggars;
+package org.adele.growbeggars.manage;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.adele.growbeggars.Constants.Item;
+import org.adele.growbeggars.constants.Constants;
+import org.adele.growbeggars.constants.Constants.Item;
 import org.adele.growbeggars.model.AutoMoneyMachine;
 import org.adele.growbeggars.model.Beggar;
 import org.adele.growbeggars.model.EmployBeggar;

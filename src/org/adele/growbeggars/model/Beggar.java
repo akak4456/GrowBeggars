@@ -2,7 +2,7 @@ package org.adele.growbeggars.model;
 
 import java.util.ArrayList;
 
-import org.adele.growbeggars.Constants;
+import org.adele.growbeggars.constants.Constants;
 
 /*
  * 유저 정보를 담는 거지 POJO

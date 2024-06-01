@@ -6,8 +6,8 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 
-import org.adele.growbeggars.GrowBeggarsView;
 import org.adele.growbeggars.model.Beggar;
+import org.adele.growbeggars.view.GrowBeggarsView;
 
 /*
  * 리플랙션을 이용해서

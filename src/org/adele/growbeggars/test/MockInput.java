@@ -1,6 +1,6 @@
 package org.adele.growbeggars.test;
 
-import org.adele.growbeggars.gameinput.GameInput;
+import org.adele.growbeggars.controller.input.GameInput;
 
 public class MockInput implements GameInput {
 	

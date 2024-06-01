@@ -1,13 +1,14 @@
-package org.adele.growbeggars;
+package org.adele.growbeggars.view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import org.adele.growbeggars.Constants.Item;
-import org.adele.growbeggars.gameinput.GameInput;
-import org.adele.growbeggars.gameoutput.GameOutput;
+import org.adele.growbeggars.constants.Constants;
+import org.adele.growbeggars.constants.Constants.Item;
+import org.adele.growbeggars.controller.input.GameInput;
+import org.adele.growbeggars.controller.output.GameOutput;
 import org.adele.growbeggars.model.AutoMoneyMachine;
 import org.adele.growbeggars.model.Beggar;
 import org.adele.growbeggars.model.Building;

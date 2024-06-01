@@ -1,4 +1,4 @@
-package org.adele.growbeggars.gameoutput;
+package org.adele.growbeggars.controller.output;
 
 public class SystemOutput implements GameOutput {
 

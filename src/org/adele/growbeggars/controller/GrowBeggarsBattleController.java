@@ -2,10 +2,10 @@ package org.adele.growbeggars.controller;
 
 import java.util.Random;
 
-import org.adele.growbeggars.Constants;
-import org.adele.growbeggars.GrowBeggarsView;
-import org.adele.growbeggars.ManageBeggar;
+import org.adele.growbeggars.constants.Constants;
+import org.adele.growbeggars.manage.ManageBeggar;
 import org.adele.growbeggars.model.Mob;
+import org.adele.growbeggars.view.GrowBeggarsView;
 
 public class GrowBeggarsBattleController extends GrowBeggarsController {
 

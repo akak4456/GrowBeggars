@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.adele.growbeggars.gameoutput.GameOutput;
+import org.adele.growbeggars.controller.output.GameOutput;
 
 public class MockOutput implements GameOutput{
 	public static Set<String> formatStrs;

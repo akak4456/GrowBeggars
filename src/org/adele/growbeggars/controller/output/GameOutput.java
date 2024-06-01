@@ -1,4 +1,4 @@
-package org.adele.growbeggars.gameoutput;
+package org.adele.growbeggars.controller.output;
 
 public interface GameOutput {
 	void printf(String format, Object... args);

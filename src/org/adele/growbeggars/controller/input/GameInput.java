@@ -1,4 +1,4 @@
-package org.adele.growbeggars.gameinput;
+package org.adele.growbeggars.controller.input;
 
 public interface GameInput {
 	int nextInt();

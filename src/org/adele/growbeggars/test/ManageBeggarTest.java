@@ -1,6 +1,6 @@
 package org.adele.growbeggars.test;
 
-import org.adele.growbeggars.ManageBeggar;
+import org.adele.growbeggars.manage.ManageBeggar;
 import org.adele.growbeggars.model.Beggar;
 
 public class ManageBeggarTest {
