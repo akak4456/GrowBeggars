@@ -1,5 +1,8 @@
 package org.adele.growbeggars.constants;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 import org.adele.growbeggars.model.AutoMoneyMachine;
@@ -44,6 +47,16 @@ public class Constants {
 	public static final int INIT_MAX_HIT_POINT = 80;
 	public static final int INIT_REQUIRE_EXP = 50;
 	
+	/*
+	 * AutoMachineConstant[] 와 같은 코드의 문제점
+	 * 1. 현재 이름이 하드코딩이 되어있다. 그래서 다국에 대응이 되지 않는다.
+	 * 2. public static final AutoMachineConstant[] 와 같이 쓰게 되면 바꿀 수 있게 되어
+	 * 안전하지가 않게 된다.
+	 * 그래서
+	 * public static final List<AutoMachineConstant> constants =
+			Collections.unmodifiableList(Arrays.asList(EMPLOY_BEGGAR_CONSTANTS));
+		와 같이 작성해야 한다.
+	 */
 	public static final AutoMachineConstant[] EMPLOY_BEGGAR_CONSTANTS = {
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_1"),"초급 거지",1.0,1000,1000),
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_2"),"초급 불의 호흡 거지",1.2,1200,1000),
@@ -53,6 +66,9 @@ public class Constants {
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_6"),"고급 거지",3.0,3000,1000),
 			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_7"),"특급 거지",4.0,4000,1000)
 	};
+	
+//	public static final List<AutoMachineConstant> constants =
+//			Collections.unmodifiableList(Arrays.asList(EMPLOY_BEGGAR_CONSTANTS));
 	
 	public static final AutoMachineConstant[] BUILDING_CONSTANTS = {
 			new AutoMachineConstant(new AutoMoneyMachine.Id("building_1"),"단독주택", 10.0, 10000, 1000),

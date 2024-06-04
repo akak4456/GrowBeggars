@@ -1,5 +1,6 @@
 package org.adele.growbeggars;
 
+import org.adele.growbeggars.constants.Constants;
 import org.adele.growbeggars.controller.GrowBeggarsBattleController;
 import org.adele.growbeggars.controller.GrowBeggarsIntroController;
 import org.adele.growbeggars.controller.GrowBeggarsMainController;
