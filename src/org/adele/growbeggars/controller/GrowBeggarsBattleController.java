@@ -16,17 +16,17 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 	@Override
 	public void run() {
 		Random random = new Random();
-		int mobIdx = random.nextInt(Constants.MOB_CONSTANTS.length);
-		boolean result = view.choiceBattleMenu(Constants.MOB_CONSTANTS[mobIdx].getName(),
-				Constants.MOB_CONSTANTS[mobIdx].getArtData());
+		int mobIdx = random.nextInt(Constants.MOB_CONSTANTS.size());
+		boolean result = view.choiceBattleMenu(Constants.MOB_CONSTANTS.get(mobIdx).getNameKey(),
+				Constants.MOB_CONSTANTS.get(mobIdx).getArtData());
 		if (result) {
 			manageBeggar.initHp();
-			Mob targetMob = new Mob(Constants.MOB_CONSTANTS[mobIdx].getId(), Constants.MOB_CONSTANTS[mobIdx].getName(),
-					Constants.MOB_CONSTANTS[mobIdx].getHp(), Constants.MOB_CONSTANTS[mobIdx].getEvasionRate(),
-					Constants.MOB_CONSTANTS[mobIdx].getHitMinPoint(), Constants.MOB_CONSTANTS[mobIdx].getHitMaxPoint(),
-					Constants.MOB_CONSTANTS[mobIdx].getEarnMinMoney(),
-					Constants.MOB_CONSTANTS[mobIdx].getEarnMaxMoney(), Constants.MOB_CONSTANTS[mobIdx].getEarnExp(),
-					Constants.MOB_CONSTANTS[mobIdx].getLoseExp());
+			Mob targetMob = new Mob(Constants.MOB_CONSTANTS.get(mobIdx).getId(), Constants.MOB_CONSTANTS.get(mobIdx).getNameKey(),
+					Constants.MOB_CONSTANTS.get(mobIdx).getHp(), Constants.MOB_CONSTANTS.get(mobIdx).getEvasionRate(),
+					Constants.MOB_CONSTANTS.get(mobIdx).getHitMinPoint(), Constants.MOB_CONSTANTS.get(mobIdx).getHitMaxPoint(),
+					Constants.MOB_CONSTANTS.get(mobIdx).getEarnMinMoney(),
+					Constants.MOB_CONSTANTS.get(mobIdx).getEarnMaxMoney(), Constants.MOB_CONSTANTS.get(mobIdx).getEarnExp(),
+					Constants.MOB_CONSTANTS.get(mobIdx).getLoseExp());
 			boolean isMyTurn = true;
 			boolean isUsedEvasion = false;
 			boolean isUsedEvasionItem = false;
@@ -66,7 +66,7 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 						isMyTurn = false;
 					} else if (myChoice == 3) {
 						// 포션 사용하기
-						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS[2])) {
+						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS.get(2))) {
 							manageBeggar.addHpFromPosion();
 							view.showUseHpPosion(manageBeggar.getCurHp());
 							isMyTurn = false;
@@ -75,7 +75,7 @@ public class GrowBeggarsBattleController extends GrowBeggarsController {
 						}
 					} else if (myChoice == 4) {
 						// 공격 무시 사용하기
-						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS[3])) {
+						if (manageBeggar.useItem(Constants.ITEM_CONSTANTS.get(3))) {
 							view.showUseIgnoreAttack();
 							isMyTurn = false;
 						} else {

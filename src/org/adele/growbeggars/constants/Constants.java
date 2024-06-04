@@ -47,61 +47,63 @@ public class Constants {
 	public static final int INIT_MAX_HIT_POINT = 80;
 	public static final int INIT_REQUIRE_EXP = 50;
 	
-	/*
-	 * AutoMachineConstant[] 와 같은 코드의 문제점
-	 * 1. 현재 이름이 하드코딩이 되어있다. 그래서 다국에 대응이 되지 않는다.
-	 * 2. public static final AutoMachineConstant[] 와 같이 쓰게 되면 바꿀 수 있게 되어
-	 * 안전하지가 않게 된다.
-	 * 그래서
-	 * public static final List<AutoMachineConstant> constants =
-			Collections.unmodifiableList(Arrays.asList(EMPLOY_BEGGAR_CONSTANTS));
-		와 같이 작성해야 한다.
-	 */
-	public static final AutoMachineConstant[] EMPLOY_BEGGAR_CONSTANTS = {
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_1"),"초급 거지",1.0,1000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_2"),"초급 불의 호흡 거지",1.2,1200,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_3"),"초급 바람의 호흡 거지",1.4,1400,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_4"),"초급 물의 호흡 거지",1.7,1700,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_5"),"중급 거지",2.0,2000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_6"),"고급 거지",3.0,3000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_7"),"특급 거지",4.0,4000,1000)
+	private static final AutoMachineConstant[] EMPLOY_BEGGAR_CONSTANTS_ARRAY = {
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_1"),"employ_beggar_1_name",1.0,1000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_2"),"employ_beggar_2_name",1.2,1200,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_3"),"employ_beggar_3_name",1.4,1400,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_4"),"employ_beggar_4_name",1.7,1700,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_5"),"employ_beggar_5_name",2.0,2000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_6"),"employ_beggar_6_name",3.0,3000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("employ_beggar_7"),"employ_beggar_7_name",4.0,4000,1000)
 	};
 	
-//	public static final List<AutoMachineConstant> constants =
-//			Collections.unmodifiableList(Arrays.asList(EMPLOY_BEGGAR_CONSTANTS));
+	public static final List<AutoMachineConstant> EMPLOY_BEGGAR_CONSTANTS =
+			Collections.unmodifiableList(Arrays.asList(EMPLOY_BEGGAR_CONSTANTS_ARRAY));
 	
-	public static final AutoMachineConstant[] BUILDING_CONSTANTS = {
-			new AutoMachineConstant(new AutoMoneyMachine.Id("building_1"),"단독주택", 10.0, 10000, 1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("building_2"),"연립주택", 15.0, 15000, 1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("building_3"),"아파트", 20.0, 20000, 1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("building_4"),"궁궐", 30.0, 30000, 1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("building_5"),"초호화 주택", 50.0, 50000, 1000)
+	private static final AutoMachineConstant[] BUILDING_CONSTANTS_ARRAY = {
+			new AutoMachineConstant(new AutoMoneyMachine.Id("building_1"),"building_1_name", 10.0, 10000, 1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("building_2"),"building_2_name", 15.0, 15000, 1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("building_3"),"building_3_name", 20.0, 20000, 1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("building_4"),"building_4_name", 30.0, 30000, 1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("building_5"),"building_5_name", 50.0, 50000, 1000)
 	};
 	
-	public static final AutoMachineConstant[] NATION_CONSTANTS = {
-			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_1"),"미국",100.0,100000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_2"),"중국",120.0,120000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_3"),"일본",150.0,150000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_4"),"대만",200.0,200000,1000),
-			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_5"),"한국",300.0,300000,1000)
+	public static final List<AutoMachineConstant> BUILDING_CONSTANTS =
+			Collections.unmodifiableList(Arrays.asList(BUILDING_CONSTANTS_ARRAY));
+	
+	private static final AutoMachineConstant[] NATION_CONSTANTS_ARRAY = {
+			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_1"),"nation_1_name",100.0,100000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_2"),"nation_2_name",120.0,120000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_3"),"nation_3_name",150.0,150000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_4"),"nation_4_name",200.0,200000,1000),
+			new AutoMachineConstant(new AutoMoneyMachine.Id("nation_5"),"nation_5_name",300.0,300000,1000)
 	};
 	
-	public static final MobConstant[] MOB_CONSTANTS = {
-			new MobConstant(new Mob.Id(1L), "슬라임", 50, 0.1, 10,20, 5000, 10000, 100, 50),
-			new MobConstant(new Mob.Id(2L), "주황버섯", 70,0.1,20,30, 7000, 15000, 200, 100),
-			new MobConstant(new Mob.Id(3L), "초록버섯", 80,0.2,30,50, 10000, 20000, 300, 150),
-			new MobConstant(new Mob.Id(4L), "파란버섯", 200,0.2,40,80, 20000, 40000, 500, 200),
-			new MobConstant(new Mob.Id(5L), "뿔버섯", 300,0.2,50,100, 30000, 60000, 700, 400),
-			new MobConstant(new Mob.Id(6L), "돼지", 500,0.3,100,200, 50000, 100000, 800, 500),
-			new MobConstant(new Mob.Id(7L), "리본돼지", 700,0.5,200,300, 200000, 400000, 2000, 1000),
+	public static final List<AutoMachineConstant> NATION_CONSTANTS =
+			Collections.unmodifiableList(Arrays.asList(NATION_CONSTANTS_ARRAY));
+	
+	private static final MobConstant[] MOB_CONSTANTS_ARRAY = {
+			new MobConstant(new Mob.Id(1L), "mob_1_name", 50, 0.1, 10,20, 5000, 10000, 100, 50),
+			new MobConstant(new Mob.Id(2L), "mob_2_name", 70,0.1,20,30, 7000, 15000, 200, 100),
+			new MobConstant(new Mob.Id(3L), "mob_3_name", 80,0.2,30,50, 10000, 20000, 300, 150),
+			new MobConstant(new Mob.Id(4L), "mob_4_name", 200,0.2,40,80, 20000, 40000, 500, 200),
+			new MobConstant(new Mob.Id(5L), "mob_5_name", 300,0.2,50,100, 30000, 60000, 700, 400),
+			new MobConstant(new Mob.Id(6L), "mob_6_name", 500,0.3,100,200, 50000, 100000, 800, 500),
+			new MobConstant(new Mob.Id(7L), "mob_7_name", 700,0.5,200,300, 200000, 400000, 2000, 1000),
 	};
 	
-	public static final Item[] ITEM_CONSTANTS = {
-			new Item("구걸 피버", 500, 5),
-			new Item("각설이타령", 1000, 1),
-			new Item("HP 포션", 1000, 1),
-			new Item("공격무시", 1000, 1)
+	public static final List<MobConstant> MOB_CONSTANTS =
+			Collections.unmodifiableList(Arrays.asList(MOB_CONSTANTS_ARRAY));
+	
+	private static final Item[] ITEM_CONSTANTS_ARRAY = {
+			new Item("item_1_name", 500, 5),
+			new Item("item_2_name", 1000, 1),
+			new Item("item_3_name", 1000, 1),
+			new Item("item_4_name", 1000, 1)
 	};
+	
+	public static final List<Item> ITEM_CONSTANTS =
+			Collections.unmodifiableList(Arrays.asList(ITEM_CONSTANTS_ARRAY));
 	
 	private Constants() {
 		
@@ -109,14 +111,14 @@ public class Constants {
 	
 	public static final class AutoMachineConstant {
 		private AutoMoneyMachine.Id id;
-		private String name;
+		private String nameKey;
 		private double mul;
 		private int buyPrice;
 		private int initUpgradePrice;
 		
-		public AutoMachineConstant(AutoMoneyMachine.Id id, String name, double mul, int buyPrice, int initUpgradePrice) {
+		public AutoMachineConstant(AutoMoneyMachine.Id id, String nameKey, double mul, int buyPrice, int initUpgradePrice) {
 			this.id = id;
-			this.name = name;
+			this.nameKey = nameKey;
 			this.mul = mul;
 			this.buyPrice = buyPrice;
 			this.initUpgradePrice = initUpgradePrice;
@@ -126,8 +128,8 @@ public class Constants {
 			return id;
 		}
 		
-		public String getName() {
-			return name;
+		public String getNameKey() {
+			return nameKey;
 		}
 		
 		public double getMul() {
@@ -145,7 +147,7 @@ public class Constants {
 	
 	public static final class MobConstant {
 		private Mob.Id id;
-		private String name;
+		private String nameKey;
 		private int hp;
 		private double evasionRate; // 회피율
 		private int hitMinPoint;// 최소공격력
@@ -155,9 +157,9 @@ public class Constants {
 		private int earnExp;// 벌 수 있는 경험치
 		private int loseExp; // 질 때 잃을 수 있는 경험치
 		
-		public MobConstant(Mob.Id id, String name, int hp, double evasionRate, int hitMinPoint, int hitMaxPoint, int earnMinMoney, int earnMaxMoney, int earnExp, int loseExp) {
+		public MobConstant(Mob.Id id, String nameKey, int hp, double evasionRate, int hitMinPoint, int hitMaxPoint, int earnMinMoney, int earnMaxMoney, int earnExp, int loseExp) {
 			this.id = id;
-			this.name = name;
+			this.nameKey = nameKey;
 			this.hp = hp;
 			this.evasionRate = evasionRate;
 			this.hitMinPoint = hitMinPoint;
@@ -172,8 +174,8 @@ public class Constants {
 			return id;
 		}
 		
-		public String getName() {
-			return name;
+		public String getNameKey() {
+			return nameKey;
 		}
 		
 		public int getHp() {
@@ -303,20 +305,20 @@ public class Constants {
 	}
 	
 	public static class Item {
-		private String name; // 이것이 곧 id
+		private String nameKey; // 이것이 곧 id
 		
 		private int itemPrice;
 		
 		private int itemBundleSize;
 		
-		public Item(String name, int itemPrice, int itemBundleSize) {
-			this.name = name;
+		public Item(String nameKey, int itemPrice, int itemBundleSize) {
+			this.nameKey = nameKey;
 			this.itemPrice = itemPrice;
 			this.itemBundleSize = itemBundleSize;
 		}
 		
-		public String getName() {
-			return name;
+		public String getNameKey() {
+			return nameKey;
 		}
 		
 		public int getItemPrice() {
@@ -329,7 +331,7 @@ public class Constants {
 
 		@Override
 		public int hashCode() {
-			return Objects.hash(name);
+			return Objects.hash(nameKey);
 		}
 
 		@Override
@@ -341,7 +343,7 @@ public class Constants {
 			if (getClass() != obj.getClass())
 				return false;
 			Item other = (Item) obj;
-			return Objects.equals(name, other.name);
+			return Objects.equals(nameKey, other.nameKey);
 		}
 		
 	}
