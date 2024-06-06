@@ -23,3 +23,5 @@ public ArrayList<AutoMoneyMachine> getMachines() {
 }
 ```
 이는 나중에 보안 문제, 상태 무결성 등에 영향을 미칠 수 있는 요소입니다. 왜냐하면 AutoMoneyMachine 같은 경우 그 객체 내의 필드를 바꿀 수 있기 때문입니다. 그래서 악의적인 사용자가 이 리스트를 얻어서 AutoMoneyMachine 을 임의로 변경할 수도 있습니다. 이는 명백히 의도한 사안이 아니며 확인을 해봐야겠지만 아마 저 getMachines() 함수에서 AutoMoneyMachine 은 읽기용으로만 쓰여야 할 것입니다. 따라서 방어적 복사를 수행하는 작업이 필요해보입니다.
+
+ - GrowBeggarsView 에서 한국어, 영어 데이터를 코드에 박아 넣었습니다. 이것도 역시 Constants.java 와 비슷한 문제와 해결책을 가지고 있습니다.
